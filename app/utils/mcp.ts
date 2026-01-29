@@ -92,7 +92,6 @@ export const createMCPServer = async () => {
     window.addEventListener("openai:tool_response", (e) => {
         console.log("Tool response:", e.detail);
     });
-
     window.addEventListener("openai:set_globals", () => {
         console.log("Layout/theme changed:", window.openai?.theme);
         console.log("Max height changed:", window.openai?.maxHeight);
