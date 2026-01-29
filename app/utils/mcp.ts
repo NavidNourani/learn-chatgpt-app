@@ -13,7 +13,7 @@ export const createMCPServer = async () => {
             title: "say hello",
             description: "print a hello world message",
             _meta: {
-                "openai/outputTemplate": "ui://widget/widget",
+                "openai/outputTemplate": "ui://widgets/sayhello",
                 "openai/toolInvocation/invoking": "Mentally prepping to say hello",
                 "openai/toolInvocation/invoked": "Hello has been said",
                 "openai/widgetAccessible": true,
@@ -42,7 +42,7 @@ export const createMCPServer = async () => {
         async () => {
             const remoteUrl =
                 process.env.MCP_WIDGET_HELLOWORLD_URL ??
-                "https://learn-chatgpt-app.vercel.app/widgets/helloWorld";
+                "https://learn-chatgpt-app.vercel.app/widgets/sayhello";
 
             const controller = new AbortController();
             const timeout = setTimeout(() => controller.abort(), 7_000);
@@ -69,7 +69,7 @@ export const createMCPServer = async () => {
             return {
                 contents: [
                     {
-                        uri: "ui://widget/widget.html",
+                        uri: "ui://widgets/sayhello",
                         mimeType: "text/html+skybridge",
                         text:
                             remoteHtml ??
