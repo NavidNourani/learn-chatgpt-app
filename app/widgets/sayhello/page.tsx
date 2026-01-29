@@ -5,7 +5,6 @@ import { useWidgetState } from "@/app/hooks/use-widget-state";
 export const dynamic = "force-static";
 
 const SayHello = () => {
-    const [name, setName] = useState<string>("John Doe");
     const [widgetState, setWidgetState] = useWidgetState<{
         name: string;
     }>({
@@ -18,7 +17,7 @@ const SayHello = () => {
     return (
         <div>
             <h1 className="text-2xl font-bold text-white">Hello {widgetState.name}</h1>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            <input type="text" value={widgetState.name} onChange={(e) => setWidgetState({ name: e.target.value })} />
             <button onClick={handleSayHello}>Say Hello</button>
         </div>
     );
