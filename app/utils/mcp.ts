@@ -13,7 +13,7 @@ export const createMCPServer = async () => {
             title: "say hello",
             description: "print a hello world message",
             _meta: {
-                "openai/outputTemplate": "ui://widget/widget.html",
+                "openai/outputTemplate": "ui://widget/widget",
                 "openai/toolInvocation/invoking": "Mentally prepping to say hello",
                 "openai/toolInvocation/invoked": "Hello has been said",
                 "openai/widgetAccessible": true,
@@ -40,12 +40,40 @@ export const createMCPServer = async () => {
             description: `ChatGPT widget for hello world`,
         },
         async () => {
+            const remoteUrl =
+                process.env.MCP_WIDGET_HELLOWORLD_URL ??
+                "https://learn-chatgpt-app.vercel.app/widgets/helloWorld";
+
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 7_000);
+
+            let remoteHtml: string | undefined;
+            try {
+                const res = await fetch(remoteUrl, {
+                    headers: { Accept: "text/html,application/xhtml+xml" },
+                    signal: controller.signal,
+                });
+                if (res.ok) {
+                    remoteHtml = await res.text();
+                } else {
+                    console.warn(
+                        `helloWorld widget fetch failed (${res.status} ${res.statusText}) from ${remoteUrl}`,
+                    );
+                }
+            } catch (err) {
+                console.warn(`helloWorld widget fetch failed from ${remoteUrl}`, err);
+            } finally {
+                clearTimeout(timeout);
+            }
+
             return {
                 contents: [
                     {
                         uri: "ui://widget/widget.html",
                         mimeType: "text/html+skybridge",
-                        text: `<style>
+                        text:
+                            remoteHtml ??
+                            `<style>
     #hello {
         color: #4d4d4d;
     }

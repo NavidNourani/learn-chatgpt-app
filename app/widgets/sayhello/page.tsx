@@ -1,7 +1,7 @@
 const SayHello = () => {
     return (
         <div>
-            <h1>Say Hello</h1>
+            <h1>Say Hello Widget</h1>
         </div>
     );
 };
