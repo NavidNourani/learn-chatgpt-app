@@ -1,5 +1,8 @@
+"use client";
 import { useWidgetState } from "@/app/hooks/useWidgetState";
 import { useState } from "react";
+
+export const dynamic = "force-static";
 
 const SayHello = () => {
     const [name, setName] = useState<string>("John Doe");

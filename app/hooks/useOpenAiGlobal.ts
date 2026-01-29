@@ -58,6 +58,10 @@ export function useOpenAiGlobal<K extends keyof OpenAiGlobals>(
       }
       return window.openai[key];
     },
+    () => {
+      // Server snapshot - return undefined during SSR
+      return undefined as OpenAiGlobals[K];
+    },
   );
 }
 
