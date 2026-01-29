@@ -3,12 +3,6 @@ import { useOpenAiGlobal } from "./use-openai-global";
 import type { UnknownObject } from "./types";
 
 export function useWidgetState<T extends UnknownObject>(
-  defaultState: T | (() => T)
-): readonly [T, (state: SetStateAction<T>) => void];
-export function useWidgetState<T extends UnknownObject>(
-  defaultState?: T | (() => T | null) | null
-): readonly [T | null, (state: SetStateAction<T | null>) => void];
-export function useWidgetState<T extends UnknownObject>(
   defaultState?: T | (() => T | null) | null
 ): readonly [T | null, (state: SetStateAction<T | null>) => void] {
   const widgetStateFromWindow = useOpenAiGlobal("widgetState") as T;
