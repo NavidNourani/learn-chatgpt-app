@@ -21,7 +21,7 @@ export const createMCPServer = async () => {
             title: "say hello",
             description: "print a hello world message",
             _meta: {
-                "openai/outputTemplate": "ui://widgets/sayhello",
+                "openai/outputTemplate": "ui://widgets/sayhello.html",
                 "openai/toolInvocation/invoking": "Mentally prepping to say hello",
                 "openai/toolInvocation/invoked": "Hello has been said",
                 "openai/widgetAccessible": true,
@@ -44,7 +44,7 @@ export const createMCPServer = async () => {
 
     mcpServer.registerResource(
         "helloWorld",
-        "ui://widgets/sayhello",
+        "ui://widgets/sayhello.html",
         {
             title: "helloWorld",
             description: `ChatGPT widget for hello world`,
@@ -80,7 +80,7 @@ export const createMCPServer = async () => {
             return {
                 contents: [
                     {
-                        uri: "ui://widgets/sayhello",
+                        uri: "ui://widgets/sayhello.html",
                         mimeType: "text/html+skybridge",
                         text:
                             remoteHtml ??
