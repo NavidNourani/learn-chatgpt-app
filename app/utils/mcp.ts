@@ -34,7 +34,7 @@ export const createMCPServer = async () => {
 
     mcpServer.registerResource(
         "helloWorld",
-        "ui://widget/widget.html",
+        "ui://widgets/sayhello",
         {
             title: "helloWorld",
             description: `ChatGPT widget for hello world`,
