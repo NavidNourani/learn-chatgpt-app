@@ -2,9 +2,11 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 export const createMCPServer = async () => {
+    // Version should be updated whenever MCP server configuration changes
+    // This ensures ChatGPT detects changes and doesn't use cached configurations
     const mcpServer = new McpServer({
         name: "chatgpt-starter-template",
-        version: "1.0.0",
+        version: process.env.MCP_SERVER_VERSION ?? "1.0.1",
     });
 
     const remoteUrl =
