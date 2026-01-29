@@ -50,6 +50,7 @@ export const createMCPServer = async () => {
             description: `ChatGPT widget for hello world`,
             _meta: {
                 "openai/widgetCSP": widgetCSP,
+                "openai/widgetDomain": remoteOrigin,
             },
         },
         async () => {
