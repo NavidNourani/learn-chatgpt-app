@@ -32,17 +32,22 @@ export const createMCPServer = async () => {
         },
     );
 
+    const remoteUrl =
+        process.env.MCP_WIDGET_HELLOWORLD_URL ??
+        "https://learn-chatgpt-app.vercel.app/widgets/sayhello";
+    const remoteOrigin = new URL(remoteUrl).origin;
+
     mcpServer.registerResource(
         "helloWorld",
         "ui://widgets/sayhello",
         {
             title: "helloWorld",
             description: `ChatGPT widget for hello world`,
+            _meta: {
+                "openai/widgetCSP": `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' ${remoteOrigin}; img-src 'self' data: https:; connect-src 'self' ${remoteOrigin}; font-src 'self' data:;`,
+            },
         },
         async () => {
-            const remoteUrl =
-                process.env.MCP_WIDGET_HELLOWORLD_URL ??
-                "https://learn-chatgpt-app.vercel.app/widgets/sayhello";
 
             const controller = new AbortController();
             const timeout = setTimeout(() => controller.abort(), 7_000);
