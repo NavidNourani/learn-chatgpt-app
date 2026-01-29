@@ -14,26 +14,28 @@
 import "./types";
 
 // Base hook for accessing window.openai globals
-export { useOpenAiGlobal } from "./useOpenAiGlobal";
+export { useOpenAiGlobal } from "./use-open-ai-global";
 
 // Tool-related hooks
-export { useToolInput } from "./useToolInput";
-export { useToolOutput } from "./useToolOutput";
-export { useToolResponseMetadata } from "./useToolResponseMetadata";
+export { useToolInput } from "./use-tool-input";
+export { useToolOutput } from "./use-tool-output";
+export { useToolResponseMetadata } from "./use-tool-response-metadata";
 
 // Widget state management
-export { useWidgetState } from "./useWidgetState";
+export { useWidgetState } from "./use-widget-state";
+export { useWidgetProps } from "./use-widget-props";
 
 // UI and display hooks
-export { useLocale } from "./useLocale";
-export { useDisplayMode } from "./useDisplayMode";
-export { useTheme } from "./useTheme";
+export { useLocale } from "./use-locale";
+export { useTheme } from "./use-theme";
+export { useMaxHeight } from "./use-max-height";
 
 // Action hooks
-export { useCallTool } from "./useCallTool";
-export { useSendFollowUpMessage } from "./useSendFollowUpMessage";
-export { useUploadFile } from "./useUploadFile";
-export { useGetFileDownloadUrl } from "./useGetFileDownloadUrl";
-export { useRequestModal } from "./useRequestModal";
-export { useOpenExternal } from "./useOpenExternal";
+export { useCallTool } from "./use-call-tool";
+export { useSendFollowUpMessage } from "./use-send-follow-up-message";
+export { useUploadFile } from "./use-upload-file";
+export { useGetFileDownloadUrl } from "./use-get-file-download-url";
+export { useRequestModal } from "./use-request-modal";
+export { useOpenExternal } from "./use-open-external";
+export { useDisplayMode } from "./use-display-mode";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useOpenAiGlobal } from "./useOpenAiGlobal";
+import { useOpenAiGlobal } from "./use-open-ai-global";
 
 /**
  * Hook to read the tool response metadata from window.openai.toolResponseMetadata

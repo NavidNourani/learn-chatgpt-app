@@ -1,6 +1,6 @@
 "use client";
-import { useWidgetState } from "@/app/hooks/useWidgetState";
 import { useState } from "react";
+import { useWidgetState } from "@/app/hooks/use-widget-state";
 
 export const dynamic = "force-static";
 
