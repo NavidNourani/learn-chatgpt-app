@@ -12,8 +12,6 @@ export const createMCPServer = async () => {
     const remoteUrl =
         process.env.MCP_WIDGET_HELLOWORLD_URL ??
         "https://learn-chatgpt-app.vercel.app/widgets/sayhello";
-    const remoteOrigin = new URL(remoteUrl).origin;
-    const widgetCSP = `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' ${remoteOrigin}; img-src 'self' data: https:; connect-src 'self' ${remoteOrigin}; font-src 'self' data:;`;
 
     mcpServer.registerTool(
         "sayHello",
@@ -25,8 +23,6 @@ export const createMCPServer = async () => {
                 "openai/toolInvocation/invoking": "Mentally prepping to say hello",
                 "openai/toolInvocation/invoked": "Hello has been said",
                 "openai/widgetAccessible": true,
-                "openai/widgetCSP": widgetCSP,
-                "openai/widgetDomain": remoteOrigin,
             },
         },
         async () => {
@@ -49,8 +45,7 @@ export const createMCPServer = async () => {
             title: "helloWorld",
             description: `ChatGPT widget for hello world`,
             _meta: {
-                "openai/widgetCSP": widgetCSP,
-                "openai/widgetDomain": remoteOrigin,
+                "openai/widgetAccessible": true,
             },
         },
         async () => {
