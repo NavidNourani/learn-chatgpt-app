@@ -84,25 +84,10 @@ export const createMCPServer = async () => {
                         mimeType: "text/html+skybridge",
                         text:
                             remoteHtml ??
-                            `<style>
-    #hello {
-        color: #4d4d4d;
-    }
-</style>
-
-<div id="hello">
-    hello, world
-</div>
-
-<script type="module">
-    window.addEventListener("openai:tool_response", (e) => {
-        console.log("Tool response:", e.detail);
-    });
-    window.addEventListener("openai:set_globals", () => {
-        console.log("Layout/theme changed:", window.openai?.theme);
-        console.log("Max height changed:", window.openai?.maxHeight);
-    });
-</script>`,
+                            `
+<div style="color: #4d4d4d;">
+    Unfortunately, the widget failed to load.
+</div>`,
                     },
                 ],
             };
