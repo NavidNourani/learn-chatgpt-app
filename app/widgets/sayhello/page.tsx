@@ -16,7 +16,7 @@ const SayHello = () => {
     };
     return (
         <div>
-            <h1 className="text-2xl font-bold text-white">Hello {widgetState?.name}</h1>
+            <h1 className="text-2xl font-bold text-white">Hello {widgetState?.name}1</h1>
             <input type="text" value={widgetState?.name} onChange={(e) => setWidgetState({ name: e.target.value })} />
             <button onClick={handleSayHello}>Say Hello</button>
         </div>

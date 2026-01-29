@@ -25,11 +25,12 @@ export function useWidgetState<T extends UnknownObject>(
     (state: SetStateAction<T | null>) => {
       _setWidgetState((prevState) => {
         const newState = typeof state === "function" ? state(prevState) : state;
+        console.log("newState", newState, window);
 
         if (newState != null && typeof window !== "undefined") {
           void window.openai?.setWidgetState?.(newState);
         }
-
+        console.log("widgetState", widgetState);
         return newState;
       });
     },
