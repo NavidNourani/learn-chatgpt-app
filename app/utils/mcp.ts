@@ -6,7 +6,7 @@ export const createMCPServer = async () => {
     // This ensures ChatGPT detects changes and doesn't use cached configurations
     const mcpServer = new McpServer({
         name: "chatgpt-starter-template",
-        version: process.env.MCP_SERVER_VERSION ?? "1.0.1",
+        version: process.env.MCP_SERVER_VERSION ?? "1.0.2",
     });
 
     const remoteUrl =
