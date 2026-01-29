@@ -1,7 +1,22 @@
+import { useWidgetState } from "@/app/hooks/useWidgetState";
+import { useState } from "react";
+
 const SayHello = () => {
+    const [name, setName] = useState<string>("John Doe");
+    const [widgetState, setWidgetState] = useWidgetState<{
+        name: string;
+    }>({
+        name: "John Doe",
+    });
+
+    const handleSayHello = () => {
+        setWidgetState({ name: "John Doe" });
+    };
     return (
         <div>
-            <h1 className="text-2xl font-bold text-white">Say Hello Widget dd</h1>
+            <h1 className="text-2xl font-bold text-white">Hello {widgetState.name}</h1>
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            <button onClick={handleSayHello}>Say Hello</button>
         </div>
     );
 };
