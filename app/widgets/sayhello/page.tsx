@@ -1,7 +1,7 @@
 const SayHello = () => {
     return (
         <div>
-            <h1>Say Hello Widget</h1>
+            <h1 className="text-2xl font-bold text-white">Say Hello Widget</h1>
         </div>
     );
 };
