@@ -30,7 +30,6 @@ export function useWidgetState<T extends UnknownObject>(
         if (newState != null && typeof window !== "undefined") {
           void window.openai?.setWidgetState?.(newState);
         }
-        console.log("widgetState", widgetState);
         return newState;
       });
     },
